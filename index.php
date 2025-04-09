@@ -35,6 +35,14 @@
   <a href="index.php" class="btn">🔄 Reset</a>
 </form>
 
+<h2 style="text-align: center;">➕ Add New Grade</h2>
+<form action="add_grade.php" method="post" style="text-align: center; margin-bottom: 30px;">
+  <input type="text" name="student_name" placeholder="Student Name" required>
+  <input type="text" name="subject_name" placeholder="Subject" required>
+  <input type="number" name="grade" placeholder="Grade (1-10)" min="1" max="10 " required style="width: 100px; required>
+  <button class="btn" type="submit">💾 Add Grade</button>
+</form>
+
 <table>
   <thead>
     <tr>
