@@ -39,7 +39,7 @@
 <form action="add_grade.php" method="post" style="text-align: center; margin-bottom: 30px;">
   <input type="text" name="student_name" placeholder="Student Name" required>
   <input type="text" name="subject_name" placeholder="Subject" required>
-  <input type="number" name="grade" placeholder="Grade (1-10)" min="1" max="10 " required style="width: 100px; required>
+  <input type="number" name="grade" placeholder="Grade (1-10)" min="1" max="10" required style="width: 100px;">
   <button class="btn" type="submit">💾 Add Grade</button>
 </form>
 
@@ -49,6 +49,7 @@
       <th>Student</th>
       <th>Subject</th>
       <th>Grade</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -58,10 +59,14 @@
           <td><?= htmlspecialchars($row['student_name']) ?></td>
           <td><?= htmlspecialchars($row['subject_name']) ?></td>
           <td><?= htmlspecialchars($row['grade']) ?></td>
+          <td>
+            <a class="btn" href="edit_grade.php?student=<?= urlencode($row['student_name']) ?>&subject=<?= urlencode($row['subject_name']) ?>">✏️ Edit</a>
+            <a class="btn" href="delete_grade.php?student=<?= urlencode($row['student_name']) ?>&subject=<?= urlencode($row['subject_name']) ?>" onclick="return confirm('Are you sure you want to delete this grade?')">🗑️ Delete</a>
+          </td>
         </tr>
       <?php endforeach; ?>
     <?php else: ?>
-      <tr><td colspan="3" style="text-align:center;">No data found.</td></tr>
+      <tr><td colspan="4" style="text-align:center;">No data found.</td></tr>
     <?php endif; ?>
   </tbody>
 </table>
